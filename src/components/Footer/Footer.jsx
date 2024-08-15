@@ -55,7 +55,7 @@ function Footer() {
   const contactInfo = [
     {
       icon: <FaPhoneAlt />,
-      text: "+123 456 789",
+      text: "+92 313 6317109",
     },
     {
       icon: <FaEnvelope />,
