@@ -6,10 +6,12 @@ import { Clients, WhatElse } from '../';
 import steeringWheelImg from '../../assets/steering-wheel.png'; // Replace with your steering wheel image path
 
 function Home() {
+
+
   return (
     <>
       {/* Steering Wheel Animation */}
-      <motion.div
+      {/* <motion.div
         
         initial={{ opacity: 1, scale: 0 }}
         animate={{ rotate: 360, scale: 3, opacity: 0 }}
@@ -18,7 +20,7 @@ function Home() {
       >
         <img 
         src={steeringWheelImg} alt="Steering Wheel" className="w-48 h-48 md:w-96 md:h-96" />
-      </motion.div>
+      </motion.div> */}
 
       <main className='flex flex-col items-center shadow-lg py-44'>
         {/* Text Section 👇🏻 */}
