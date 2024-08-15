@@ -1,6 +1,7 @@
 import React from "react";
 import { FaBullseye, FaEye, FaHandshake, FaChartLine, FaRocket, FaLightbulb } from "react-icons/fa";
-import { OurResults, WhyUs } from "../";
+import { OurResults, WhyUs,Clients, WhatElse  } from "../";
+
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -86,9 +87,12 @@ const About = () => {
           })}
         </div>
       </div>
+      <Clients />
+      <WhatElse />
       <OurResults />
       <div className="bg-white py-8">
         <WhyUs />
+        
       </div>
     </section>
   );

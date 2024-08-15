@@ -1,28 +1,20 @@
 import React from 'react';
 import { Button } from '../../utils';
 import { NavLink } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Clients, WhatElse } from '../';
-import steeringWheelImg from '../../assets/steering-wheel.png'; // Replace with your steering wheel image path
+// import laptopBg from '../../assets/laptop-bg.svg';
 
 function Home() {
-
-
   return (
     <>
-      {/* Steering Wheel Animation */}
-      {/* <motion.div
-        
-        initial={{ opacity: 1, scale: 0 }}
-        animate={{ rotate: 360, scale: 3, opacity: 0 }}
-        transition={{ duration: 3, ease: 'easeInOut' }}
-        className="fixed inset-0 flex items-center justify-center bg-transparent z-50 pointer-events-none"
+      <main
+        className='flex flex-col items-center py-44'
+        // style={{
+        //   backgroundImage: `url(${laptopBg})`,
+        //   backgroundSize: 'cover', // Ensures the background covers the entire container
+        //   backgroundPosition: 'center', // Centers the background image
+        //   backgroundRepeat: 'no-repeat', // Prevents the background image from repeating
+        // }}
       >
-        <img 
-        src={steeringWheelImg} alt="Steering Wheel" className="w-48 h-48 md:w-96 md:h-96" />
-      </motion.div> */}
-
-      <main className='flex flex-col items-center shadow-lg py-44'>
         {/* Text Section 👇🏻 */}
         <div className="text-center md:pl-24 pl-8 pr-2 text-orange">
           <h1 className='text-sm md:text-2xl font-semibold flex items-center'>
@@ -43,8 +35,7 @@ function Home() {
         </div>
       </main>
 
-      <Clients />
-      <WhatElse />
+    
     </>
   );
 }
