@@ -1,5 +1,7 @@
 import React from 'react'
 import { FaArrowDown } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 import seo from "../../../assets/svg/seo.svg"
 import smm from "../../../assets/svg/smm.svg";
@@ -8,6 +10,7 @@ import contentWriting from "../../../assets/svg/contentWriting.svg";
 import webDev from "../../../assets/svg/webDev.svg";
 import branding from "../../../assets/svg/branding.svg";
 import { NavLink } from 'react-router-dom';
+import { Button } from '../../../utils';
 
 
 function WhatElse() {
@@ -89,55 +92,80 @@ function WhatElse() {
         }
     ];
 
-
+    const cardVariants = {
+        hidden: { opacity: 0, y: 100 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeInOut" } },
+      };
 
 
     return (
-        <div className='mt-12 md:mt-16 pb-8'>
-            <h4
-                className='text-3xl md:text-5xl font-bold text-orange text-center'
-            >
-                WHAT ELSE YOU CAN EXPECT FROM
-                <span className='text-skyBlue'> BUSINESS DRIVERS ?</span>
-            </h4>
-
-            {/* down arrow */}
-            <div className="arrow-container flex justify-center text-orange mt-8">
-                <FaArrowDown size={"2rem"} />
-            </div>
-
-
-            {/* Service Cards */}
-
-            <div className="container mx-auto p-4 my-8">
-                <div className="flex flex-wrap justify-center gap-20">
-                    {services.map((service, index) => (
-                        <div
-                            key={index}
-                            className="pb-8 border-2 border-orange p-6 rounded-lg shadow-lg flex flex-col items-center justify-center text-center bg-white w-full sm:w-1/2 lg:w-1/3"
-                        >
-                            <img className="w-[5rem] mb-4" src={service.icon} alt={service.title} />
-                            <h3 className="text-2xl font-bold text-orange mb-2">{service.title}</h3>
-                            <p className="text-skyBlue mb-4 font-semibold">{service.description}</p>
-                            <ul className="font-bold text-left list-disc list-inside space-y-2 mb-4">
-                                {service.bullets.map((bullet, idx) => (
-                                    <li key={idx} className="text-orange">
-                                        {bullet}
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className="mx-auto my-12 w-[70%] bg-orange h-[2px]"></div>
-
-                            <NavLink to="" className="text-skyBlue font-bold text-[18px]">
-                                {service.linkText}
-                            </NavLink>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <div className="mx-auto my-16 w-[70%] bg-orange h-[2px]"></div>
+        <div className="mt-12 md:mt-16 pb-8">
+        <h4 className="text-3xl md:text-5xl font-bold text-orange text-center">
+          WHAT ELSE YOU CAN EXPECT FROM
+          <span className="text-skyBlue"> BUSINESS DRIVERS?</span>
+        </h4>
+  
+        {/* Down arrow */}
+        <div className="arrow-container flex justify-center text-orange mt-8">
+          <FaArrowDown size={"2rem"} />
         </div>
+  
+        {/* Service Cards */}
+        <div className="container mx-auto p-4 my-8">
+          <div className="flex flex-wrap justify-center gap-20">
+            {services.map((service, index) => {
+              const { ref, inView } = useInView({
+                threshold: 0.3,
+                triggerOnce: true,
+              });
+  
+              return (
+                <motion.div
+                  key={index}
+                  ref={ref}
+                  className="pb-8 border-2 border-orange p-6 rounded-lg shadow-lg flex flex-col items-center justify-center text-center bg-white w-full sm:w-1/2 lg:w-1/3"
+                  initial="hidden"
+                  animate={inView ? "visible" : "hidden"}
+                  variants={cardVariants}
+                >
+                  <img className="w-[5rem] mb-4" src={service.icon} alt={service.title} />
+                  <h3 className="text-2xl font-bold text-orange mb-2">{service.title}</h3>
+                  <p className="text-skyBlue mb-4 font-semibold">{service.description}</p>
+                  <ul className="font-bold text-left list-disc list-inside space-y-2 mb-4">
+                    {service.bullets.map((bullet, idx) => (
+                      <li key={idx} className="text-orange">
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mx-auto my-12 w-[70%] bg-orange h-[2px]"></div>
+                  <NavLink to="" className="text-skyBlue font-bold text-[18px]">
+                    {service.linkText}
+                  </NavLink>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+  
+        
+
+        <div className="boost-btn-container flex justify-center">
+                <NavLink to="/contact">
+                    <Button
+                        children="Let's Boost Your Business"
+                        className='font-bold my-4  text-white py-4 px-8 bg-skyBlue hover:bg-white hover:text-skyBlue duration-300 hover:scale-105 border-white border-2 hover:border-skyBlue'
+                    />
+                </NavLink>
+
+            </div>
+
+            {/* br */}
+        <div className="mx-auto my-16 w-[70%] bg-orange h-[2px]">
+
+        </div>
+      </div>
+
     )
 }
 

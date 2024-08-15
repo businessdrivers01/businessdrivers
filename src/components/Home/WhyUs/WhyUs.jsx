@@ -47,15 +47,7 @@ function WhyUs() {
                 ))
             }
 
-            <div className="boost-btn-container flex justify-center">
-                <NavLink to="/contact">
-                    <Button
-                        children="Let's Boost Your Business"
-                        className='font-bold my-4  text-white py-4 px-8 bg-skyBlue hover:bg-white hover:text-skyBlue duration-300 hover:scale-105 border-white border-2 hover:border-skyBlue'
-                    />
-                </NavLink>
-
-            </div>
+        
         </div>
     )
 }
