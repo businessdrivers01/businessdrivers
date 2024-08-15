@@ -97,8 +97,8 @@ function WhatElse() {
             <h4
                 className='text-3xl md:text-5xl font-bold text-orange text-center'
             >
-                WHAT ELSE YOU CAN EXPECT
-                <span className='text-skyBlue'> FROM THIS DIGITAL MARKETING AGENCY ?</span>
+                WHAT ELSE YOU CAN EXPECT FROM
+                <span className='text-skyBlue'> BUSINESS DRIVERS ?</span>
             </h4>
 
             {/* down arrow */}

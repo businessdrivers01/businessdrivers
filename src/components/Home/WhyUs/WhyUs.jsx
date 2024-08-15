@@ -30,10 +30,10 @@ function WhyUs() {
     return (
         <div>
             <h4
-                className='md:px-0 px-4 text-3xl md:text-4xl font-bold text-skyBlue text-center'
+                className='md:px-0 px-4 text-3xl md:text-4xl font-bold text-center text-orange'
             >
-                WHY BUSINESS DRIVERS
-                <span className='text-orange'> DIGITAL MARKETING AGENCY ?</span>
+                WHY WE ARE
+                <span className='text-skyBlue'> BUSINESS DRIVERS ?</span>
             </h4>
             {
                 businessDriversBenefits.map((benefit, index) => (

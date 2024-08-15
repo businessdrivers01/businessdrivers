@@ -14,7 +14,7 @@ function Clients() {
   return (
     <div className="mt-8 md:mt-16 shadow-sm pb-8">
       <h3 className="text-4xl md:text-5xl text-orange text-center font-bold">
-      <span className='text-skyBlue'>CLIENTS</span> WE HAVE WORKED WITH
+      <span className='text-skyBlue'>BUSINESSES</span> WE WORKED FOR
       </h3>
       <div className="mt-12 md:mt-20 overflow-hidden white-space-nowrap flex">
         <div className="flex animate-ticker">

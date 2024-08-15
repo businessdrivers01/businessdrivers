@@ -73,7 +73,7 @@ function Header() {
                         onMouseEnter={showDropdown}
                         onMouseLeave={hideDropdown}>
                         <NavLink to="/all-services" className={({ isActive }) => `flex items-center ${isActive ? 'text-orange' : 'text-[#60c0e2]'} md:mx-4 mx-[5px] text-[0.8rem] md:text-[16px] font-semibold cursor-pointer hover:text-orange`}>
-                            DIGITAL MARKETING SERVICES <RiArrowDropDownLine className='hidden md:block' size={"1.5rem"} />
+                            SERVICES <RiArrowDropDownLine className='hidden md:block' size={"1.5rem"} />
                         </NavLink>
                         {dropdownVisible && (
                             <ul className={`border-[2px] border-orange py-2 absolute left-0 top-full bg-[#ffffff] text-orange shadow-lg mt-2 rounded-md overflow-hidden transform transition-transform duration-300 ease-in-out ${showDropdown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[-10px] pointer-events-none'
@@ -105,14 +105,14 @@ function Header() {
 
                     <li className='my-2 md:my-0 duration-500 md:hover:scale-125'>
                         <NavLink to="/contact" className={({ isActive }) => (`${isActive ? 'text-orange' : 'text-[#60c0e2]'} md:mx-4 mx-[5px] text-[0.8rem] md:text-[16px] font-semibold cursor-pointer   hover:text-orange`
-                        )}>CONTACT</NavLink>
+                        )}>FREE COURSE</NavLink>
                     </li>
                 </ul>
 
                 <div className="btn-container">
                     <NavLink to="/contact">
                         <Button
-                            children={"Get A Quote"}
+                            children={"CONTACT US"}
                             className='hidden md:block text-white px-6 font-bold bg-[#60c0e2]
                       hover:bg-[#ffffff] hover:text-skyBlue border-[1.5px] border-[#60c0e2] duration-500'
                         />

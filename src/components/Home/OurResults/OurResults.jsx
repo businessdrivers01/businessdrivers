@@ -15,7 +15,7 @@ function OurResults() {
     ];
 
     const { ref, inView } = useInView({
-        triggerOnce: true, // Trigger only once
+        triggerOnce: false, // 
         threshold: 0.3, // Trigger when 30% of the component is in view
     });
 
@@ -40,7 +40,7 @@ function OurResults() {
                         <div className="icon text-skyBlue text-5xl">{card.icon}</div>
                         <p className="mt-4 stats-count text-2xl font-bold text-skyBlue">
                             {inView ? (
-                                <CountUp suffix='+' start={0} end={card.count} duration={2} separator="," />
+                                <CountUp suffix=' +' start={0} end={card.count} duration={2} separator="," />
                             ) : (
                                 '0'
                             )}

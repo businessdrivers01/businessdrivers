@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import mainLogo from '../../assets/main-logo.webp'
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import mainLogo from '../../assets/main-logo.webp';
+import { FaInstagram, FaLinkedin, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+
 function Footer() {
 
   // Array for the Navigation Items
@@ -48,9 +49,19 @@ function Footer() {
       link: "https://www.instagram.com/the_community_of_game_changers?igsh=dGw3YmVuc2syNzYw",
       label: "Instagram",
     },
-   
   ];
 
+  // Contact Information
+  const contactInfo = [
+    {
+      icon: <FaPhoneAlt />,
+      text: "+123 456 789",
+    },
+    {
+      icon: <FaEnvelope />,
+      text: "businessdrivers01@gmail.com",
+    },
+  ];
 
   return (
     <footer className="bg-white border-t-2 border-skyBlue mt-8">
@@ -63,9 +74,19 @@ function Footer() {
                 className="h-20"
                 alt="Logo"
               />
-              <span className="self-center text-2xl text-skyBlue font-extrabold whitespace-nowrap">
-                BUSINESS <span className='text-orange'>DRIVERS</span>
-              </span>
+              <div className="ml-4">
+                <span className="self-center text-2xl text-skyBlue font-extrabold whitespace-nowrap">
+                  BUSINESS <span className='text-orange'>DRIVERS</span>
+                </span>
+                <div className="mt-2">
+                  {contactInfo.map((info, index) => (
+                    <div key={index} className="flex items-center text-skyBlue mt-2">
+                      {info.icon}
+                      <span className="ml-2 text-sm">{info.text}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </NavLink>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -88,7 +109,6 @@ function Footer() {
           </div>
         </div>
         <div className="sm:flex sm:items-center sm:justify-between mt-6">
-
           <div className="flex sm:justify-end justify-start space-x-6 sm:mt-0">
             {socialIcons.map((social, index) => (
               <NavLink
@@ -107,5 +127,4 @@ function Footer() {
   );
 };
 
-
-export default Footer
+export default Footer;

@@ -49,11 +49,8 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="md:text-5xl text-3xl font-bold text-orange mb-4">About <span className="text-skyBlue">Us</span></h2>
-          <p className="text-skyBlue font-semibold text-xl">
-            We are Business <span className="text-orange">Drivers</span>, a results-driven digital marketing agency that
-            helps businesses  <span className="text-orange">achieve their goals</span> through customized marketing
-            strategies. Our mission is to elevate your brand and maximize your
-            online presence with innovative solutions and expert insights.
+          <p className="text-orange font-semibold text-xl">
+            We are  <span className="text-skyBlue">Business Drivers,</span> that helps businesses achieve their goals.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
