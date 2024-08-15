@@ -17,7 +17,7 @@ const About = () => {
       icon: <FaEye className="text-orange text-4xl" />,
       title: "Our Vision",
       description:
-        "To be the leading digital marketing partner, recognized for our expertise, creativity, and unwavering commitment to client success.",
+        "To be the premier choice for businesses seeking transformative growth and industry leadership through strategic marketing and business development solutions.",
     },
     {
       icon: <FaChartLine className="text-orange text-4xl" />,
@@ -47,7 +47,7 @@ const About = () => {
 
   const cardVariants = {
     hidden: { opacity: 0, y: 100 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeInOut" } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeIn" } },
   };
 
   return (
@@ -64,7 +64,7 @@ const About = () => {
         <div className="space-y-8">
           {cardData.map((card, index) => {
             const { ref, inView } = useInView({
-              threshold: 0.3,
+              threshold: 0.5,
               triggerOnce: false,
             });
 

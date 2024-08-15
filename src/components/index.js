@@ -19,7 +19,9 @@ import ContentWriting from "./Services/ContentWriting/ContentWriting.jsx"
 import AllServices from "./Services/AllServices/AllServices.jsx"
 import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy.jsx"
 import TermsAndConditions from "./TermsAndConditions/TermsAndConditions .jsx"
-
+import SliderComponent from "./Home/SliderComponent/SliderComponent.jsx"
+import FreeCourses from "./FreeCourses/FreeCourses.jsx"
+import SpecialServices from "./SpecialServices/SpecialServices.jsx"
 
 export {
     Header,
@@ -42,5 +44,8 @@ export {
     ContentWriting,
     AllServices,
     PrivacyPolicy,
-    TermsAndConditions
+    TermsAndConditions,
+    SliderComponent,
+    FreeCourses,
+    SpecialServices,
 }

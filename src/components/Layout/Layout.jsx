@@ -53,7 +53,7 @@ function Layout() {
                         href={whatsappUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="fixed bottom-2 left-1/2 transform -translate-x-1/2 z-50"
+                        className="fixed bottom-2 right-0 z-50"
                     >
                         <Button
                             children={"CONTACT ON WHATSAPP"}

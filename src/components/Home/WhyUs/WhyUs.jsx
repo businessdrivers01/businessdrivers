@@ -5,35 +5,32 @@ function WhyUs() {
 
     const businessDriversBenefits = [
         {
+            title: 'OUR DISTINCTIVE APPROACH',
+            description: "At Business Drivers 01, we pride ourselves on our unique approach to business growth. We combine digital expertise with strategic business insights, offering solutions that are not only creative but also grounded in data and analytics. Our commitment to innovation ensures that we are always exploring new technologies and methodologies to enhance our offerings.",
+        },
+        {
+            title: 'INNOVATION AT THE CORE',
+            description: 'We embrace a culture of innovation, constantly exploring new technologies and methodologies to enhance our offerings. Our solutions are not only creative but also rooted in data and analytics, ensuring precision and effectiveness.',
+        },
+        {
+            title: 'CLIENT-CENTRIC PHILOSOPHY',
+            description: 'Your success is our mission. We prioritize understanding your unique challenges and aspirations, allowing us to deliver solutions that are perfectly aligned with your vision. Our collaborative approach ensures that we work as an extension of your team, providing support and guidance at every step.',
+        },
+        {
             title: 'PROVEN TRACK RECORD',
-            description: "We've helped businesses grow and thrive online with a variety of digital marketing strategies in the past.",
-        },
-        {
-            title: 'EXPERIENCED TEAM',
-            description: 'Our team is made up of experienced professionals who are dedicated to staying up-to-date on the latest trends and techniques in the industry.',
-        },
-        {
-            title: 'WIDE RANGE OF SERVICES',
-            description: 'We offer a wide range of digital marketing services, including SEO, PPC, social media marketing, and more, to help businesses succeed in the digital world.',
-        },
-        {
-            title: 'CUSTOMIZED SOLUTIONS',
-            description: 'We work closely with our clients to understand their unique needs and goals, and we offer customized solutions to help them succeed online.',
-        },
-        {
-            title: 'EXCEPTIONAL CUSTOMER SERVICE',
-            description: 'We are committed to providing the highest level of service to our clients, and we strive to build long-term relationships with them.',
+            description: 'Our success is measured by the success of our clients. We have helped numerous businesses achieve significant growth and industry leadership through our innovative strategies and client-centric approach.',
         },
     ];
-
+    
 
     return (
         <div>
             <h4
                 className='md:px-0 px-4 text-3xl md:text-4xl font-bold text-center text-orange'
             >
-                WHY WE ARE
-                <span className='text-skyBlue'> BUSINESS DRIVERS ?</span>
+                HOW ARE WE
+
+                <span className='text-skyBlue'> DIFFERENT?</span>
             </h4>
             {
                 businessDriversBenefits.map((benefit, index) => (

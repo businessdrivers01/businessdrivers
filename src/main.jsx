@@ -16,7 +16,9 @@ import {
   CreativesBranding,
   AllServices,
   PrivacyPolicy,
-  TermsAndConditions
+  TermsAndConditions,
+  FreeCourses,
+  SpecialServices
 } from './components/index.js'
 
 
@@ -37,6 +39,8 @@ const router = createBrowserRouter(
       <Route path="/content-writing" element={<ContentWriting />} />
       <Route path="/creatives-branding" element={<CreativesBranding />} />
       <Route path="/all-services" element={<AllServices />} />
+      <Route path="/special-services" element={<SpecialServices/>} />
+      <Route path="/free-courses" element={<FreeCourses />} />
 
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
@@ -44,6 +48,7 @@ const router = createBrowserRouter(
     </Route>
   )
 )
+
 
 
 createRoot(document.getElementById('root')).render(

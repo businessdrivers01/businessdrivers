@@ -1,19 +1,13 @@
 import React from 'react';
 import { Button } from '../../utils';
 import { NavLink } from 'react-router-dom';
-// import laptopBg from '../../assets/laptop-bg.svg';
+import { SliderComponent, WhyUs } from "../"
 
 function Home() {
   return (
     <>
       <main
-        className='flex flex-col items-center py-44'
-        // style={{
-        //   backgroundImage: `url(${laptopBg})`,
-        //   backgroundSize: 'cover', // Ensures the background covers the entire container
-        //   backgroundPosition: 'center', // Centers the background image
-        //   backgroundRepeat: 'no-repeat', // Prevents the background image from repeating
-        // }}
+        className='flex flex-col items-center pt-44'
       >
         {/* Text Section 👇🏻 */}
         <div className="text-center md:pl-24 pl-8 pr-2 text-orange">
@@ -25,7 +19,7 @@ function Home() {
           </h1>
 
           <div className="grow-btn-container flex justify-center">
-            <NavLink to="/contact">
+            <NavLink to="/all-services">
               <Button
                 children='Look What We Can Do For You'
                 className='font-bold text-sm md:text-xl text-white my-16 md:my-24 py-4 px-8 bg-skyBlue hover:bg-white hover:text-skyBlue duration-300 hover:scale-105 border-white border-2 hover:border-skyBlue'
@@ -35,7 +29,8 @@ function Home() {
         </div>
       </main>
 
-    
+      <SliderComponent />
+      <WhyUs />
     </>
   );
 }

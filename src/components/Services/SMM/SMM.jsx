@@ -92,8 +92,8 @@ function SMM() {
   return (
     <div>
       <ServiceCards
-        title1="Social Media Marketing"
-        title2="(SMM)"
+        title1="DIGITAL"
+        title2="TRANSFORMATION"
         description="Our Social Media Marketing services are designed to enhance your online presence and engage with your audience across various platforms."
         services={smmServices}
       />

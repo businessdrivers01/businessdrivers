@@ -4,6 +4,25 @@ import { Button } from '../../utils';
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { GiHamburgerMenu, GiCancel } from "react-icons/gi";
 import mainLogo from '../../assets/main-logo.webp'
+
+// Define navigation items and dropdown items as arrays
+const navLinks = [
+    { to: "/", label: "HOME" },
+    { to: "/about", label: "ABOUT US" },
+    { to: "/all-services", label: "SERVICES", isDropdown: true },
+    { to: "/special-services", label: "SPECIAL SERVICES" },
+    { to: "/free-courses", label: "FREE COURSES" }
+];
+
+const dropdownItems = [
+    { to: "/seo", label: "SEO" },
+    { to: "/social-media-marketing", label: "SOCIAL MEDIA MARKETING" },
+    { to: "/ppc", label: "PPC (PAY PER CLICK)" },
+    { to: "/web-dev", label: "WEBSITE DESIGN AND DEVELOPMENT" },
+    { to: "/content-writing", label: "CONTENT WRITING SERVICES" },
+    { to: "/creatives-branding", label: "CREATIVES AND BRANDING" }
+];
+
 function Header() {
     const [dropdownVisible, setDropdownVisible] = useState(false);
     let hideTimeout;
@@ -31,82 +50,50 @@ function Header() {
 
     return (
         <header className='bg-orange'>
-
             <nav className={`flex items-center justify-between lg:justify-between bg-white shadow-lg py-6 md:py-0 px-4 md:px-12 w-[100vw]`}>
-
-
                 <div className="logo w-[18vw] md:w-[8vw] p-0 m-0">
                     <NavLink to="/">
-                        <img
-                            className='w-full scale-150'
-                            src={mainLogo} alt="" />
+                        <img className='w-full scale-150' src={mainLogo} alt="" />
                     </NavLink>
-
                 </div>
 
                 {/* Navigation links */}
                 <ul className={`
-  lg:flex transition-transform duration-1000 ease-in-out items-center 
-  ${menuVisible ?
+                    lg:flex transition-transform duration-1000 ease-in-out items-center 
+                    ${menuVisible ?
                         'py-6 pl-32 md:px-0 md:py-0 flex-col lg:flex-row absolute top-28 left-0 right-0 bg-[#ffffff] lg:bg-transparent lg:relative lg:top-0 transition-transform duration-1000 ease-in-out' +
                         (menuVisible ? ' translate-y-0' : ' -translate-y-full') :
                         'hidden'
                     }
-`}>
-                    <li className='my-2 md:my-0 duration-500 md:hover:scale-125 '>
-                        <NavLink
-                            to="/"
-                            className={({ isActive }) => (`  
-                                ${isActive ? 'text-orange' : 'text-[#60c0e2]'} md:mx-4 mx-[5px] text-[0.8rem] md:text-[16px] font-semibold cursor-pointer hover:text-orange`
+                `}>
+                    {navLinks.map((link, index) => (
+                        <li key={index} className={`my-2 mx-4 md:my-0 duration-500 ${link.isDropdown ? 'relative dropdown-parent duration-500 md:hover:scale-110 flex items-center' : 'md:hover:scale-125 '}`}
+                            onMouseEnter={link.isDropdown ? showDropdown : undefined}
+                            onMouseLeave={link.isDropdown ? hideDropdown : undefined}>
+                            <NavLink
+                                to={link.to}
+                                className={({ isActive }) => (`  
+                                    ${isActive ? 'text-orange' : 'text-[#60c0e2]'} md:mx-4 mx-[5px] text-[0.8rem] md:text-[16px] font-semibold cursor-pointer hover:text-orange`)}
+                            >
+                                <span className="flex items-center">
+                                    {link.label}
+                                    {link.isDropdown && <RiArrowDropDownLine className="ml-1 hidden md:inline-block" size={"1.5rem"} />}
+                                </span>
+                            </NavLink>
+                            {link.isDropdown && dropdownVisible && (
+                                <ul className={`border-[2px] border-orange py-2 absolute left-0 top-full bg-[#ffffff] text-orange shadow-lg mt-2 rounded-md overflow-hidden transform transition-transform duration-300 ease-in-out ${dropdownVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[-10px] pointer-events-none'
+                                    }`}
+                                    onMouseEnter={cancelHideDropdown}
+                                    onMouseLeave={hideDropdown}>
+                                    {dropdownItems.map((item, index) => (
+                                        <li key={index} className="px-4 py-2 hover:text-orange my-4 font-semibold duration-500">
+                                            <NavLink to={item.to}>{item.label}</NavLink>
+                                        </li>
+                                    ))}
+                                </ul>
                             )}
-                        >
-                            HOME
-                        </NavLink>
-                    </li>
-
-                    <li className='my-2 md:my-0 duration-500 md:hover:scale-125'>
-                        <NavLink to="/about" className={({ isActive }) => (`${isActive ? 'text-orange' : 'text-[#60c0e2]'} md:mx-4 mx-[5px] text-[0.8rem] md:text-[16px] font-semibold cursor-pointer   hover:text-orange`
-                        )}>ABOUT US</NavLink>
-                    </li>
-
-                    <li className='my-2 md:my-0 relative dropdown-parent duration-500 md:hover:scale-110'
-                        onMouseEnter={showDropdown}
-                        onMouseLeave={hideDropdown}>
-                        <NavLink to="/all-services" className={({ isActive }) => `flex items-center ${isActive ? 'text-orange' : 'text-[#60c0e2]'} md:mx-4 mx-[5px] text-[0.8rem] md:text-[16px] font-semibold cursor-pointer hover:text-orange`}>
-                            SERVICES <RiArrowDropDownLine className='hidden md:block' size={"1.5rem"} />
-                        </NavLink>
-                        {dropdownVisible && (
-                            <ul className={`border-[2px] border-orange py-2 absolute left-0 top-full bg-[#ffffff] text-orange shadow-lg mt-2 rounded-md overflow-hidden transform transition-transform duration-300 ease-in-out ${showDropdown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[-10px] pointer-events-none'
-                                }`}
-                                onMouseEnter={cancelHideDropdown}
-                                onMouseLeave={hideDropdown}>
-                                <li className="px-4 py-2 hover:text-orange my-4 font-semibold duration-500">
-                                    <NavLink to="/seo">SEO</NavLink>
-                                </li>
-                                <li className="px-4 py-2 hover:text-orange my-4 font-semibold duration-500">
-                                    <NavLink to="/social-media-marketing">SOCIAL MEDIA MARKETING</NavLink>
-                                </li>
-                                <li className="px-4 py-2 hover:text-orange my-4 font-semibold duration-500">
-                                    <NavLink to="/ppc">PPC (PAY PER CLICK)</NavLink>
-                                </li>
-                                <li className="px-4 py-2 hover:text-orange my-4 font-semibold duration-500">
-                                    <NavLink to="/web-dev">WEBSITE DESIGN AND DEVELOPMENT</NavLink>
-                                </li>
-                                <li className="px-4 py-2 hover:text-orange my-4 font-semibold duration-500">
-                                    <NavLink to="/content-writing">CONTENT WRITING SERVICES</NavLink>
-                                </li>
-                                <li className="px-4 py-2 hover:text-orange my-4 font-semibold duration-500">
-                                    <NavLink to="/creatives-branding">CREATIVES AND BRANDING</NavLink>
-                                </li>
-                            </ul>
-                        )}
-                    </li>
-
-
-                    <li className='my-2 md:my-0 duration-500 md:hover:scale-125'>
-                        <NavLink to="/contact" className={({ isActive }) => (`${isActive ? 'text-orange' : 'text-[#60c0e2]'} md:mx-4 mx-[5px] text-[0.8rem] md:text-[16px] font-semibold cursor-pointer   hover:text-orange`
-                        )}>FREE COURSE</NavLink>
-                    </li>
+                        </li>
+                    ))}
                 </ul>
 
                 <div className="btn-container">
@@ -114,7 +101,7 @@ function Header() {
                         <Button
                             children={"CONTACT US"}
                             className='hidden md:block text-white px-6 font-bold bg-[#60c0e2]
-                      hover:bg-[#ffffff] hover:text-skyBlue border-[1.5px] border-[#60c0e2] duration-500'
+                            hover:bg-[#ffffff] hover:text-skyBlue border-[1.5px] border-[#60c0e2] duration-500'
                         />
                     </NavLink>
                 </div>

@@ -92,7 +92,7 @@ function CreativesBranding() {
   return (
     <div>
       <ServiceCards
-        title1="Creatives and Branding"
+        title1="BRAND DEVELOPMENT"
         title2="Services"
         description="Our Creatives and Branding services will elevate your brand's visual identity and impact."
         services={creativesAndBrandingServices}
