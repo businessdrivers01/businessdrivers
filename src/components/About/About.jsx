@@ -64,7 +64,7 @@ const About = () => {
           {cardData.map((card, index) => {
             const { ref, inView } = useInView({
               threshold: 0.3,
-              triggerOnce: true,
+              triggerOnce: false,
             });
 
             return (
