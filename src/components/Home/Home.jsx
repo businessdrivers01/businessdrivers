@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '../../utils';
 import { NavLink } from 'react-router-dom';
-import { SliderComponent, WhyUs } from "../"
+import { SliderComponent, Welcome, WhoWeAre, WhyUs } from "../"
 
 function Home() {
   return (
@@ -39,6 +39,8 @@ function Home() {
 
       </main>
 
+      <Welcome />
+      <WhoWeAre />
       <WhyUs />
 
       <div className="boost-btn-container flex justify-center">

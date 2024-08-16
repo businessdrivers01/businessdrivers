@@ -20,7 +20,7 @@ function OurResults() {
     });
 
     return (
-        <div className='mt-12 md:mt-16 shadow-lg pb-8'>
+        <div className='mt-12 md:mt-16  pb-8'>
             <h4 className='text-4xl md:text-5xl font-bold text-orange text-center'>
                 <span className='text-skyBlue'>OUR</span> RESULTS
             </h4>

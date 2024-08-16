@@ -9,32 +9,35 @@ import mainLogo from '../../assets/main-logo.webp'
 const navLinks = [
     { to: "/", label: "HOME" },
     { to: "/about", label: "ABOUT US" },
-    { to: "/all-services", label: "SERVICES", isDropdown: true },
-    { to: "/special-services", label: "SPECIAL SERVICES" },
+    { to: "/all-services", label: "SERVICES", isDropdown: true, dropdownItems: [
+        { to: "/seo", label: "SEO" },
+        { to: "/social-media-marketing", label: "SOCIAL MEDIA MARKETING" },
+        { to: "/ppc", label: "PPC (PAY PER CLICK)" },
+        { to: "/web-dev", label: "WEBSITE DESIGN AND DEVELOPMENT" },
+        { to: "/content-writing", label: "CONTENT WRITING SERVICES" },
+        { to: "/creatives-branding", label: "CREATIVES AND BRANDING" }
+    ]},
+    { to: "/all-services", label: "SPECIAL SERVICES", isDropdown: true, dropdownItems: [
+        { to: "special-services", label: "Strategic Marketing Consulting" },
+        { to: "special-services", label: "Growth Hacking" },
+        { to: "special-services", label: "Market Analysis and Research" },
+        { to: "special-services", label: "Sales Enablement" }
+    ]},
     { to: "/free-courses", label: "FREE COURSES" }
 ];
 
-const dropdownItems = [
-    { to: "/seo", label: "SEO" },
-    { to: "/social-media-marketing", label: "SOCIAL MEDIA MARKETING" },
-    { to: "/ppc", label: "PPC (PAY PER CLICK)" },
-    { to: "/web-dev", label: "WEBSITE DESIGN AND DEVELOPMENT" },
-    { to: "/content-writing", label: "CONTENT WRITING SERVICES" },
-    { to: "/creatives-branding", label: "CREATIVES AND BRANDING" }
-];
-
 function Header() {
-    const [dropdownVisible, setDropdownVisible] = useState(false);
+    const [activeDropdown, setActiveDropdown] = useState(null);
     let hideTimeout;
 
-    const showDropdown = () => {
+    const showDropdown = (label) => {
         clearTimeout(hideTimeout);
-        setDropdownVisible(true);
+        setActiveDropdown(label);
     };
 
     const hideDropdown = () => {
         hideTimeout = setTimeout(() => {
-            setDropdownVisible(false);
+            setActiveDropdown(null);
         }, 300); // Adjust the delay as needed
     };
 
@@ -61,14 +64,14 @@ function Header() {
                 <ul className={`
                     lg:flex transition-transform duration-1000 ease-in-out items-center 
                     ${menuVisible ?
-                        'py-6 pl-32 md:px-0 md:py-0 flex-col lg:flex-row absolute top-28 left-0 right-0 bg-[#ffffff] lg:bg-transparent lg:relative lg:top-0 transition-transform duration-1000 ease-in-out' +
+                        'z-[100] py-6 pl-32 md:px-0 md:py-0 flex-col lg:flex-row absolute top-28 left-0 right-0 bg-[#ffffff] lg:bg-transparent lg:relative lg:top-0 transition-transform duration-1000 ease-in-out' +
                         (menuVisible ? ' translate-y-0' : ' -translate-y-full') :
                         'hidden'
                     }
                 `}>
                     {navLinks.map((link, index) => (
                         <li key={index} className={`z-[100] my-2 mx-4 md:my-0 duration-500 ${link.isDropdown ? 'relative dropdown-parent duration-500 md:hover:scale-110 flex items-center' : 'md:hover:scale-125 '}`}
-                            onMouseEnter={link.isDropdown ? showDropdown : undefined}
+                            onMouseEnter={() => link.isDropdown ? showDropdown(link.label) : undefined}
                             onMouseLeave={link.isDropdown ? hideDropdown : undefined}>
                             <NavLink
                                 to={link.to}
@@ -80,12 +83,12 @@ function Header() {
                                     {link.isDropdown && <RiArrowDropDownLine className="ml-1 hidden md:inline-block" size={"1.5rem"} />}
                                 </span>
                             </NavLink>
-                            {link.isDropdown && dropdownVisible && (
-                                <ul className={`z-[100] border-[2px] border-orange py-2 absolute left-0 top-full bg-[#ffffff] text-orange shadow-lg mt-2 rounded-md overflow-hidden transform transition-transform duration-300 ease-in-out ${dropdownVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[-10px] pointer-events-none'
+                            {link.isDropdown && activeDropdown === link.label && (
+                                <ul className={`z-[100] border-[2px] border-orange py-2 absolute left-0 top-full bg-[#ffffff] text-orange shadow-lg mt-2 rounded-md overflow-hidden transform transition-transform duration-300 ease-in-out ${activeDropdown === link.label ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[-10px] pointer-events-none'
                                     }`}
                                     onMouseEnter={cancelHideDropdown}
                                     onMouseLeave={hideDropdown}>
-                                    {dropdownItems.map((item, index) => (
+                                    {link.dropdownItems.map((item, index) => (
                                         <li key={index} className="px-4 py-2 hover:text-orange my-4 font-semibold duration-500">
                                             <NavLink to={item.to}>{item.label}</NavLink>
                                         </li>
@@ -119,4 +122,4 @@ function Header() {
     )
 }
 
-export default Header
+export default Header;

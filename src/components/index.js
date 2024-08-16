@@ -22,7 +22,8 @@ import TermsAndConditions from "./TermsAndConditions/TermsAndConditions .jsx"
 import SliderComponent from "./Home/SliderComponent/SliderComponent.jsx"
 import FreeCourses from "./FreeCourses/FreeCourses.jsx"
 import SpecialServices from "./SpecialServices/SpecialServices.jsx"
-
+import Welcome from "./Home/Welcome/Welcome.jsx"
+import WhoWeAre from "./Home/WhoWeAre/WhoWeAre.jsx"
 export {
     Header,
     Footer,
@@ -48,4 +49,6 @@ export {
     SliderComponent,
     FreeCourses,
     SpecialServices,
+    Welcome,
+    WhoWeAre
 }

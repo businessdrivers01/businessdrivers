@@ -90,10 +90,6 @@ const About = () => {
       <Clients />
       <WhatElse />
       <OurResults />
-      <div className="bg-white py-8">
-        <WhyUs />
-        
-      </div>
     </section>
   );
 };
