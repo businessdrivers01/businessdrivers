@@ -67,7 +67,7 @@ function Header() {
                     }
                 `}>
                     {navLinks.map((link, index) => (
-                        <li key={index} className={`my-2 mx-4 md:my-0 duration-500 ${link.isDropdown ? 'relative dropdown-parent duration-500 md:hover:scale-110 flex items-center' : 'md:hover:scale-125 '}`}
+                        <li key={index} className={`z-[100] my-2 mx-4 md:my-0 duration-500 ${link.isDropdown ? 'relative dropdown-parent duration-500 md:hover:scale-110 flex items-center' : 'md:hover:scale-125 '}`}
                             onMouseEnter={link.isDropdown ? showDropdown : undefined}
                             onMouseLeave={link.isDropdown ? hideDropdown : undefined}>
                             <NavLink
@@ -81,7 +81,7 @@ function Header() {
                                 </span>
                             </NavLink>
                             {link.isDropdown && dropdownVisible && (
-                                <ul className={`border-[2px] border-orange py-2 absolute left-0 top-full bg-[#ffffff] text-orange shadow-lg mt-2 rounded-md overflow-hidden transform transition-transform duration-300 ease-in-out ${dropdownVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[-10px] pointer-events-none'
+                                <ul className={`z-[100] border-[2px] border-orange py-2 absolute left-0 top-full bg-[#ffffff] text-orange shadow-lg mt-2 rounded-md overflow-hidden transform transition-transform duration-300 ease-in-out ${dropdownVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[-10px] pointer-events-none'
                                     }`}
                                     onMouseEnter={cancelHideDropdown}
                                     onMouseLeave={hideDropdown}>

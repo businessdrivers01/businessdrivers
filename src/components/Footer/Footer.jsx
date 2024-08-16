@@ -59,7 +59,7 @@ function Footer() {
     },
     {
       icon: <FaEnvelope />,
-      text: "businessdrivers01@gmail.com",
+      text: "info@businessdrivers01.com",
     },
   ];
 

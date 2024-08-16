@@ -35,7 +35,7 @@ const SliderComponent = () => {
   ];
 
   return (
-    <div className="slider-container w-10/12 md:w-1/2 mx-auto mb-16">
+    <div className="z-[1] slider-container w-10/12 md:w-[70%] mx-auto mb-16">
       <Slider {...settings}>
         {slides.map((slide, index) => (
           <div key={index}>
