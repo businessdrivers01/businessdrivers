@@ -24,7 +24,7 @@ function Welcome() {
                 welcomeContent.map((content, index) => (
                     <motion.div 
                         key={index} 
-                        className='cursor-pointer welcome-section mb-12 p-6 bg-gray-100 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300'
+                        className='cursor-pointer welcome-section mb-12 p-6 bg-white rounded-lg'
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: index * 0.2 }}

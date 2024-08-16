@@ -7,7 +7,7 @@ function Home() {
   return (
     <>
       <main
-        className='flex flex-col items-center pt-16'
+        className='flex flex-col items-center'
       >
         {/* Text Section 👇🏻 */}
         {/* <div className="text-center md:pl-24 pl-8 pr-2 text-orange">

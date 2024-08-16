@@ -35,12 +35,12 @@ const SliderComponent = () => {
   ];
 
   return (
-    <div className="z-[1] slider-container w-10/12 md:w-[70%] mx-auto mb-16">
+    <div className="z-[1] slider-container w-10/12 md:w-[100%] mx-auto mb-16">
       <Slider {...settings}>
         {slides.map((slide, index) => (
           <div key={index}>
             <img src={slide.image} alt={slide.alt} 
-            className="w-full h-auto rounded-lg" />
+            className="w-full h-auto" />
           </div>
         ))}
       </Slider>
